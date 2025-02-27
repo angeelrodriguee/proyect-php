@@ -13,10 +13,10 @@ if (!$conn) {
 }
 
 // Creamos las variables con la información del cliente enviada a través del formulario
-$nombre = $_POST['name'];
-$apellido = $_POST['surname'];
+$nombre = $_POST['nombre'];
+$apellido = $_POST['apellido'];
 $usuario = $_POST['email'];
-$password = $_POST['password'];
+$password = $_POST['contraseña'];
 
 // Consulta SQL para buscar el usuario en la base de datos
 $sql = "SELECT * FROM `$db_table_name` WHERE email = '$usuario'";
@@ -31,7 +31,7 @@ if (mysqli_num_rows($resultado) > 0) {
    exit;
 } else {
    // Insertar el nuevo registro
-   $sql_insert = "INSERT INTO `$db_table_name` (nombre, apellido, email, contraseña) VALUES ('$nombre', '$apellido', '$usuario', '$password')";
+   $sql_insert = "INSERT INTO `$db_table_name` (nombre, apellidos, email, contraseña) VALUES ('$nombre', '$apellido', '$usuario', '$password')";
    $retry_value = mysqli_query($conn, $sql_insert);
 
    if (!$retry_value) {

@@ -18,7 +18,7 @@ if (!$conn) {
 
 // Recoger los datos enviados desde el formulario
 $usuario = $_POST['email'];
-$password = $_POST['password'];
+$password = $_POST['contraseña'];
 
 // Consulta SQL para buscar el usuario en la base de datos
 $sql = "SELECT * FROM `$db_table_name` WHERE email = '$usuario'";
